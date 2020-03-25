@@ -2,7 +2,7 @@
 
 Flutter librity to create radio groups and radio button with labels.
 
-| [![](https://raw.githubusercontent.com/TercyoStorck/radio_button_group/master/assets/1.jpg)](http://videoblocks.com)  | [![](https://raw.githubusercontent.com/TercyoStorck/radio_button_group/master/assets/2.jpg)](http://audioblocks.com) | [![](https://raw.githubusercontent.com/TercyoStorck/radio_button_group/master/assets/3.jpg)](http://graphicstock.com) |
+| ![](https://raw.githubusercontent.com/TercyoStorck/group_radio_button/master/assets/1.jpg)  | ![](https://raw.githubusercontent.com/TercyoStorck/group_radio_button/master/assets/2.jpg) | ![](https://raw.githubusercontent.com/TercyoStorck/group_radio_button/master/assets/3.jpg) |
 |:---:|:---:|:---:|
 
 ## RadioButton

@@ -19,7 +19,11 @@ class RadioButton<T> extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => InkWell(
-        onTap: () => this.onChanged(value),
+        onTap: () {
+          if(this.onChanged != null){
+            this.onChanged(value);
+          }
+        },
         child: Row(
           mainAxisAlignment: this.textPosition == RadioButtonTextPosition.right
               ? MainAxisAlignment.start

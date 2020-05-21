@@ -1,6 +1,6 @@
 # Radio button group
 
-Flutter librity to create radio groups and radio button with labels.
+Flutter libriry to create radio groups and radio button with labels.
 
 | ![](https://raw.githubusercontent.com/TercyoStorck/group_radio_button/master/assets/1.jpg)  | ![](https://raw.githubusercontent.com/TercyoStorck/group_radio_button/master/assets/2.jpg) | ![](https://raw.githubusercontent.com/TercyoStorck/group_radio_button/master/assets/3.jpg) |
 |:---:|:---:|:---:|

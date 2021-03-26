@@ -6,22 +6,22 @@ class RadioButton<T> extends StatelessWidget {
   final String description;
   final T value;
   final T groupValue;
-  final void Function(T) onChanged;
+  final void Function(T?)? onChanged;
   final RadioButtonTextPosition textPosition;
 
   const RadioButton({
-    @required this.description,
-    @required this.value,
-    @required this.groupValue,
-    @required this.onChanged,
+    required this.description,
+    required this.value,
+    required this.groupValue,
+    required this.onChanged,
     this.textPosition = RadioButtonTextPosition.right,
   });
 
   @override
   Widget build(BuildContext context) => InkWell(
         onTap: () {
-          if(this.onChanged != null){
-            this.onChanged(value);
+          if (this.onChanged != null) {
+            this.onChanged!(value);
           }
         },
         child: Row(

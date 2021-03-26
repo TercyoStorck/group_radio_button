@@ -17,16 +17,16 @@ class RadioGroup<T> extends StatelessWidget {
   final T groupValue;
   final List<T> items;
   final RadioButtonBuilder Function(T value) itemBuilder;
-  final void Function(T) onChanged;
+  final void Function(T?)? onChanged;
   final Axis direction;
   final double spacebetween;
   final MainAxisAlignment horizontalAlignment;
 
   const RadioGroup.builder({
-    @required this.groupValue,
-    @required this.onChanged,
-    @required this.items,
-    @required this.itemBuilder,
+    required this.groupValue,
+    required this.onChanged,
+    required this.items,
+    required this.itemBuilder,
     this.direction = Axis.vertical,
     this.spacebetween = 30,
     this.horizontalAlignment = MainAxisAlignment.spaceBetween,

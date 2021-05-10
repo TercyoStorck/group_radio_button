@@ -21,7 +21,7 @@ class RadioGroup<T> extends StatelessWidget {
   final Axis direction;
   final double spacebetween;
   final MainAxisAlignment horizontalAlignment;
-  final Color activeColor;
+  final Color? activeColor;
 
   const RadioGroup.builder({
     required this.groupValue,

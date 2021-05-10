@@ -1,3 +1,7 @@
+## [1.1.0] (May 21, 2020)
+- Flutter 2
+- Selected Color
+
 ## [1.0.1] (May 21, 2020)
 - fix onChanged when radios readonly
 

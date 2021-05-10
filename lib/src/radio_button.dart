@@ -8,7 +8,7 @@ class RadioButton<T> extends StatelessWidget {
   final T groupValue;
   final void Function(T?)? onChanged;
   final RadioButtonTextPosition textPosition;
-  final Color activeColor;
+  final Color? activeColor;
 
   const RadioButton({
     required this.description,
@@ -23,7 +23,7 @@ class RadioButton<T> extends StatelessWidget {
   Widget build(BuildContext context) => InkWell(
         onTap: () {
           if (this.onChanged != null) {
-            this.onChanged(value);
+            this.onChanged!(value);
           }
         },
         child: Row(

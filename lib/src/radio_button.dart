@@ -6,15 +6,15 @@ class RadioButton<T> extends StatelessWidget {
   final String description;
   final T value;
   final T groupValue;
-  final void Function(T) onChanged;
+  final void Function(T?)? onChanged;
   final RadioButtonTextPosition textPosition;
   final Color activeColor;
 
   const RadioButton({
-    @required this.description,
-    @required this.value,
-    @required this.groupValue,
-    @required this.onChanged,
+    required this.description,
+    required this.value,
+    required this.groupValue,
+    required this.onChanged,
     this.textPosition = RadioButtonTextPosition.right,
     this.activeColor,
   });

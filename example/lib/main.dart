@@ -48,6 +48,11 @@ class _HomePageState extends State<HomePage> {
                     () => _singleValue = value,
                   ),
                   activeColor: Colors.red,
+                  buttonTextStyle: TextStyle(
+                    fontSize: 30,
+                    fontWeight: FontWeight.w600,
+                    color: Colors.red
+                  ),
                 ),
                 RadioButton(
                   description: "Text alignment left",
@@ -89,12 +94,18 @@ class _HomePageState extends State<HomePage> {
             RadioGroup<String>.builder(
               direction: Axis.horizontal,
               groupValue: _verticalGroupValue,
+              horizontalAlignment: MainAxisAlignment.spaceAround,
               onChanged: (value) => setState(() {
                 _verticalGroupValue = value;
               }),
               items: _status,
+              buttonTextStyle: TextStyle(
+                fontSize: 15,
+                color: Colors.blue
+              ),
               itemBuilder: (item) => RadioButtonBuilder(
                 item,
+                
               ),
             ),
           ],

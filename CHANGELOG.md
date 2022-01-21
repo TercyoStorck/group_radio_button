@@ -1,3 +1,6 @@
+## [1.2.0] (May 21, 2020)
+- TextStyle
+
 ## [1.1.0] (May 21, 2020)
 - Flutter 2
 - Selected Color

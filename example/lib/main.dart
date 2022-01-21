@@ -48,7 +48,7 @@ class _HomePageState extends State<HomePage> {
                     () => _singleValue = value,
                   ),
                   activeColor: Colors.red,
-                  buttonTextStyle: TextStyle(
+                  textStyle: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.w600,
                     color: Colors.red
@@ -99,7 +99,7 @@ class _HomePageState extends State<HomePage> {
                 _verticalGroupValue = value;
               }),
               items: _status,
-              buttonTextStyle: TextStyle(
+              textStyle: TextStyle(
                 fontSize: 15,
                 color: Colors.blue
               ),

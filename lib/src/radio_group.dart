@@ -22,7 +22,7 @@ class RadioGroup<T> extends StatelessWidget {
   final double spacebetween;
   final MainAxisAlignment horizontalAlignment;
   final Color? activeColor;
-  final TextStyle? buttonTextStyle;
+  final TextStyle? textStyle;
 
   const RadioGroup.builder({
     required this.groupValue,
@@ -33,7 +33,7 @@ class RadioGroup<T> extends StatelessWidget {
     this.spacebetween = 30,
     this.horizontalAlignment = MainAxisAlignment.spaceBetween,
     this.activeColor,
-    this.buttonTextStyle,
+    this.textStyle,
   });
 
   List<Widget> get _group => this.items.map(
@@ -47,7 +47,7 @@ class RadioGroup<T> extends StatelessWidget {
               value: item,
               groupValue: this.groupValue,
               onChanged: this.onChanged,
-              buttonTextStyle: buttonTextStyle,
+              textStyle: textStyle,
               textPosition: radioButtonBuilder.textPosition ??
                   RadioButtonTextPosition.right,
               activeColor: activeColor,

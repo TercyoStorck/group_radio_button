@@ -9,7 +9,7 @@ class RadioButton<T> extends StatelessWidget {
   final void Function(T?)? onChanged;
   final RadioButtonTextPosition textPosition;
   final Color? activeColor;
-  final TextStyle? buttonTextStyle;
+  final TextStyle? textStyle;
 
   const RadioButton({
     required this.description,
@@ -18,7 +18,7 @@ class RadioButton<T> extends StatelessWidget {
     required this.onChanged,
     this.textPosition = RadioButtonTextPosition.right,
     this.activeColor,
-    this.buttonTextStyle,
+    this.textStyle,
   });
 
   @override
@@ -38,7 +38,7 @@ class RadioButton<T> extends StatelessWidget {
                     padding: const EdgeInsets.only(left: 8.0),
                     child: Text(
                       this.description,
-                      style: this.buttonTextStyle,
+                      style: this.textStyle,
                       textAlign: TextAlign.left,
                     ),
                   )
@@ -54,7 +54,7 @@ class RadioButton<T> extends StatelessWidget {
                     padding: const EdgeInsets.only(right: 8.0),
                     child: Text(
                       this.description,
-                      style: this.buttonTextStyle,
+                      style: this.textStyle,
                       textAlign: TextAlign.right,
                     ),
                   )

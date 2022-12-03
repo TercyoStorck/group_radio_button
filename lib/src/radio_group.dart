@@ -11,7 +11,6 @@ class RadioGroup<T> extends StatelessWidget {
   /// The [items] are elements to contruct the group
   /// [onChanged] will called every time a radio is selected. The clouser return the selected item.
   /// [direction] most be horizontal or vertial.
-  /// [spacebetween] works only when [direction] is [Axis.vertical] and ignored when [Axis.horizontal].
   /// and represent the space between elements
   /// [horizontalAlignment] works only when [direction] is [Axis.horizontal] and ignored when [Axis.vertical].
   final T groupValue;
@@ -19,9 +18,9 @@ class RadioGroup<T> extends StatelessWidget {
   final RadioButtonBuilder Function(T value) itemBuilder;
   final void Function(T?)? onChanged;
   final Axis direction;
-  final double spacebetween;
   final MainAxisAlignment horizontalAlignment;
   final Color? activeColor;
+  final Color? fillColor;
   final TextStyle? textStyle;
 
   const RadioGroup.builder({
@@ -30,9 +29,9 @@ class RadioGroup<T> extends StatelessWidget {
     required this.items,
     required this.itemBuilder,
     this.direction = Axis.vertical,
-    this.spacebetween = 30,
     this.horizontalAlignment = MainAxisAlignment.spaceBetween,
     this.activeColor,
+    this.fillColor,
     this.textStyle,
   });
 
@@ -40,29 +39,48 @@ class RadioGroup<T> extends StatelessWidget {
         (item) {
           final radioButtonBuilder = this.itemBuilder(item);
 
-          return Container(
-            height: this.direction == Axis.vertical ? this.spacebetween : 40.0,
+          if (this.direction == Axis.vertical) {
+            return Padding(
+              padding: const EdgeInsets.all(1.0),
+              child: RadioButton(
+                description: radioButtonBuilder.description,
+                value: item,
+                groupValue: this.groupValue,
+                onChanged: this.onChanged,
+                textStyle: textStyle,
+                textPosition: radioButtonBuilder.textPosition ?? RadioButtonTextPosition.right,
+                activeColor: activeColor,
+                fillColor: this.fillColor,
+              ),
+            );
+          }
+
+          return Expanded(
             child: RadioButton(
               description: radioButtonBuilder.description,
               value: item,
               groupValue: this.groupValue,
               onChanged: this.onChanged,
               textStyle: textStyle,
-              textPosition: radioButtonBuilder.textPosition ??
-                  RadioButtonTextPosition.right,
+              textPosition: radioButtonBuilder.textPosition ?? RadioButtonTextPosition.right,
               activeColor: activeColor,
-            )
+              fillColor: this.fillColor,
+            ),
           );
         },
       ).toList();
 
   @override
-  Widget build(BuildContext context) => this.direction == Axis.vertical
-      ? Column(
-          children: _group,
-        )
-      : Row(
-          mainAxisAlignment: this.horizontalAlignment,
-          children: _group,
-        );
+  Widget build(BuildContext context) {
+    if (this.direction == Axis.vertical) {
+      return Column(
+        children: _group,
+      );
+    }
+
+    return Row(
+      mainAxisAlignment: this.horizontalAlignment,
+      children: _group,
+    );
+  }
 }

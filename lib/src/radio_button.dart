@@ -9,6 +9,7 @@ class RadioButton<T> extends StatelessWidget {
   final void Function(T?)? onChanged;
   final RadioButtonTextPosition textPosition;
   final Color? activeColor;
+  final Color? fillColor;
   final TextStyle? textStyle;
 
   const RadioButton({
@@ -18,48 +19,48 @@ class RadioButton<T> extends StatelessWidget {
     required this.onChanged,
     this.textPosition = RadioButtonTextPosition.right,
     this.activeColor,
+    this.fillColor,
     this.textStyle,
   });
 
   @override
-  Widget build(BuildContext context) => InkWell(
-        onTap: () {
-          if (this.onChanged != null) {
-            this.onChanged!(value);
-          }
-        },
-        child: Row(
-          mainAxisAlignment: this.textPosition == RadioButtonTextPosition.right
-              ? MainAxisAlignment.start
-              : MainAxisAlignment.end,
-          children: <Widget>[
-            this.textPosition == RadioButtonTextPosition.left
-                ? Padding(
-                    padding: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      this.description,
-                      style: this.textStyle,
-                      textAlign: TextAlign.left,
-                    ),
-                  )
-                : Container(),
-            Radio<T>(
-              groupValue: groupValue,
-              onChanged: this.onChanged,
-              value: this.value,
-              activeColor: activeColor,
-            ),
-            this.textPosition == RadioButtonTextPosition.right
-                ? Padding(
-                    padding: const EdgeInsets.only(right: 8.0),
-                    child: Text(
-                      this.description,
-                      style: this.textStyle,
-                      textAlign: TextAlign.right,
-                    ),
-                  )
-                : Container(),
-          ],
-        ),
-      );
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: () {
+        if (this.onChanged != null) {
+          this.onChanged!(value);
+        }
+      },
+      child: Row(
+        mainAxisAlignment: this.textPosition == RadioButtonTextPosition.right ? MainAxisAlignment.start : MainAxisAlignment.end,
+        children: <Widget>[
+          this.textPosition == RadioButtonTextPosition.left
+              ? Expanded(
+                  child: Text(
+                    this.description,
+                    style: this.textStyle,
+                    textAlign: TextAlign.right,
+                  ),
+                )
+              : Container(),
+          Radio<T>(
+            groupValue: groupValue,
+            onChanged: this.onChanged,
+            value: this.value,
+            activeColor: activeColor,
+            fillColor: fillColor != null ? MaterialStateProperty.all(fillColor) : null,
+          ),
+          this.textPosition == RadioButtonTextPosition.right
+              ? Expanded(
+                  child: Text(
+                    this.description,
+                    style: this.textStyle,
+                    textAlign: TextAlign.left,
+                  ),
+                )
+              : Container(),
+        ],
+      ),
+    );
+  }
 }
